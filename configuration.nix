@@ -108,7 +108,7 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default. 
     discord-ptb #Discord
     kitty #Better terminal
-    cider-2 #apple music steaming
+    libreoffice-qt
 	#  wget
   ];
 
