@@ -87,9 +87,18 @@
     ];
   };
 
-  # Install firefox.
+  #Enable/Disable
   programs.firefox.enable = true;
   programs.steam.enable = true;
+  programs.discord-ptb.enable = true;
+
+  #configuration: manages packages and system settings per system
+  #home: manages per system settings
+  #flake: maintains versions of programs when loading from git
+  # hardware- configuration: per system hardware settings(automatically generated)
+  
+  
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -97,8 +106,9 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default. 
-    discord-ptb
-    kitty
+    discord-ptb #Discord
+    kitty #Better terminal
+    cider-2 #apple music steaming
 	#  wget
   ];
 

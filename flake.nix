@@ -17,7 +17,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.adriano = ./home.nix;
+            home-manager.users.adriano = ./adriano.nix;
 
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
