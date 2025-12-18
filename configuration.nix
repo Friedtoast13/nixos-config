@@ -93,7 +93,7 @@
   programs.steam.enable = true;
   nixos.nordvpn.enable = true;
 
-
+  
   #configuration: manages packages and system settings per system
   #home: manages per system settings
   #flake: maintains versions of programs when loading from git
@@ -104,6 +104,11 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.open = true;  # see the note above
+ 
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

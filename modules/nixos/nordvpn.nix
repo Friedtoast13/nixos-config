@@ -16,23 +16,26 @@
     iproute2,
     procps,
     cacert,
+    libnl, # Needed for 3.9.x +
+    libcap_ng, # Needed for 3.9.x +
+    sqlite, # Needed for 4.1.x +
     libxml2,
     libidn2,
     zlib,
     wireguard-tools,
   }: let
     pname = "nordvpn";
-    version = "3.18.3";
+    version = "4.3.1";
 
     nordVPNBase = stdenv.mkDerivation {
       inherit pname version;
 
       src = fetchurl {
-        url = "https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn_${version}_amd64.deb";
-        hash = "sha256-pCveN8cEwEXdvWj2FAatzg89fTLV9eYehEZfKq5JdaY=";
+        url = "https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/n/nordvpn/nordvpn_${version}_amd64.deb";
+        hash = "sha256-oFf4uxZsucAh2yW++SQRxFx8+JdL8ZsNzWqzjJ2JqUs=";
       };
 
-      buildInputs = [libxml2 libidn2];
+      buildInputs = [libxml2 libidn2 libnl sqlite libcap_ng];
       nativeBuildInputs = [dpkg autoPatchelfHook stdenv.cc.cc.lib];
 
       dontConfigure = true;
@@ -60,12 +63,15 @@
 
       # hardcoded path to /sbin/ip
       targetPkgs = pkgs: [
+        sqlite # Needed for 4.1.x +
         nordVPNBase
         sysctl
         iptables
         iproute2
         procps
         cacert
+        libnl # Needed for 3.9.x +
+        libcap_ng # Needed for 3.9.x +
         libxml2
         libidn2
         zlib
@@ -117,7 +123,6 @@ in
       environment.systemPackages = [nordVpnPkg];
 
       users.groups.nordvpn = {};
-
       systemd = {
         services.nordvpn = {
           description = "NordVPN daemon.";
