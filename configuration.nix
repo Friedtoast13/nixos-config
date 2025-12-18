@@ -7,7 +7,8 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      ./hardware-configuration.nix 
+      ./modules/nixos/nordvpn.nix
     ];
 
   # Bootloader.
@@ -81,7 +82,7 @@
   users.users.adriano = {
     isNormalUser = true;
     description = "adriano";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "nordvpn"];
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -90,6 +91,8 @@
   #Enable/Disable
   programs.firefox.enable = true;
   programs.steam.enable = true;
+  nixos.nordvpn.enable = true;
+
 
   #configuration: manages packages and system settings per system
   #home: manages per system settings
