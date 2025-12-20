@@ -119,7 +119,7 @@
     kitty #Better terminal
     libreoffice-qt
     kicad
-    stylix
+  
 	#  wget
   ];
   
