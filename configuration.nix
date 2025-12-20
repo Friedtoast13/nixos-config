@@ -91,6 +91,7 @@
   #Enable/Disable
   programs.firefox.enable = true;
   programs.steam.enable = true;
+  hardware.opengl.enable = true;
   nixos.nordvpn.enable = true;
 
   
@@ -117,6 +118,8 @@
     discord-ptb #Discord
     kitty #Better terminal
     libreoffice-qt
+    kicad
+    stylix
 	#  wget
   ];
   
@@ -127,7 +130,8 @@
     "text/html" = "firefox.desktop";
     "x-scheme-handler/http" = "firefox.desktop";
     "x-scheme-handler/https" = "firefox.desktop";
-  };
+  }; 
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
