@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix 
       ./modules/nixos/nordvpn.nix
+      ./modules/nixos/home-manager.nix
     ];
 
   # Bootloader.
@@ -119,6 +120,7 @@
     kitty #Better terminal
     libreoffice-qt
     kicad
+    pavucontrol
   
 	#  wget
   ];
@@ -132,6 +134,7 @@
     "x-scheme-handler/https" = "firefox.desktop";
   }; 
 
+ 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
