@@ -1,4 +1,4 @@
-{inputs, ...} = {
+{inputs, ...}:  {
       home-manager.useGlobalPkgs = true;
       home-manager.sharedModules = [
         ../../modules/home/default.nix

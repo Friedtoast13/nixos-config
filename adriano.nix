@@ -1,25 +1,10 @@
 {inputs, pkgs, ...}: {
 
-	home.stateVersion = "24.05";
 	programs.git = {
-	enable = true;
-	extraConfig.init.defaultBranch = "main";
 	userName = "Friedtoast13";
 	userEmail = "adrianofullerton@gmail.com"; 
 	};
+	colorScheme = inputs.nix-colors.colorSchemes.espresso;
+	wallpaperPath = modules/theme/TtheC.jpg;
 
-	#kitty settings
-	programs.kitty = {
-	  enable = true;
-	  settings = {
-	    background_opacity = 0.8;
-	    
-	  };
-	};
-	programs.vscode = {
-	  enable = true;
-	  extensions = with pkgs.vscode-extensions; [
-	    vscodevim.vim
-	  ];
-	};
 }

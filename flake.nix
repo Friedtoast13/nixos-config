@@ -15,6 +15,7 @@
     nixosConfigurations = {
       adriano-nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = [ 
 	  stylix.nixosModules.stylix  
           ./configuration.nix
