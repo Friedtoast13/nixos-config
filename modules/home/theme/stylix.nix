@@ -1,5 +1,6 @@
 { config, lib, ... }:
 {
+
   options = {
     wallpaperPath = lib.mkOption {
       description = "Path to wallpaper to use w/ stylix";

@@ -10,6 +10,7 @@
       ./hardware-configuration.nix 
       ./modules/nixos/nordvpn.nix
       ./modules/nixos/home-manager.nix
+      ./modules/nixos/stylix.nix
     ];
 
   # Bootloader.
